@@ -25,7 +25,7 @@ RUN ./download-beammp-server.sh $PRE_RELEASE
 #    Run Image     #
 ####################
 FROM docker.io/ubuntu:24.04
-LABEL maintainer="Rouven Himmelstein rouven@himmelstein.info"
+LABEL maintainer="Jarne Vercruysse jarne@vercruysse.dev"
 
 ## Game server parameter and their defaults
 ENV BEAMMP_PORT "30814"
@@ -47,8 +47,7 @@ RUN apt update &&  \
 
 # Create game server folder
 RUN mkdir -p /beammp/Resources/Server /beammp/Resources/Client
-VOLUME /beammp/Resources/Server
-VOLUME /beammp/Resources/Client
+VOLUME /beammp/Resources
 WORKDIR /beammp
 
 # Copy the previously downloaded executable
